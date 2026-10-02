@@ -1,4 +1,4 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { useColorScheme } from 'react-native';
 
@@ -11,7 +11,11 @@ export default function Layout() {
         screenOptions={{
           headerShown: false,
         }}
-      />
+      >
+        <Stack.Screen name="index" />
+        <Stack.Screen name="forgot-password" />
+        <Stack.Screen name="explore" />
+      </Stack>
     </ThemeProvider>
   );
 }

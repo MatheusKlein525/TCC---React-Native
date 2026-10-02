@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import {
   Dimensions,
@@ -16,6 +16,7 @@ const { width, height } = Dimensions.get('window');
 
 export default function HomeScreen() {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
+  const router = useRouter(); // Instância do navegador do Expo Router
 
   return (
     <View style={styles.container}>
@@ -89,13 +90,12 @@ export default function HomeScreen() {
             </Text>
           </TouchableOpacity>
 
-          <Link href="/forgot-password" asChild>
-            <TouchableOpacity>
-              <Text style={styles.link}>
-                Esqueci minha senha
-              </Text>
-            </TouchableOpacity>
-          </Link>
+          {/* CLIQUE NAVEGA DIRETAMENTE PARA A TELA DE FORGOT-PASSWORD */}
+          <TouchableOpacity onPress={() => router.push('/forgot-password')}>
+            <Text style={styles.link}>
+              Esqueci minha senha
+            </Text>
+          </TouchableOpacity>
 
         </View>
 
@@ -133,25 +133,21 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
   content: {
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 33,
     paddingTop: height * 0.30,
   },
-
   logo: {
     width: 320,
     height: 230,
     marginBottom: 35,
   },
-
   input: {
     width: '100%',
     height: 44,
@@ -163,7 +159,6 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 19,
   },
-
   passwordContainer: {
     width: '100%',
     height: 44,
@@ -174,7 +169,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 9,
   },
-
   passwordInput: {
     flex: 1,
     height: '100%',
@@ -182,32 +176,27 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#333333',
   },
-
   eyeButton: {
     width: 40,
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   eye: {
     fontSize: 18,
     color: '#AAAAAA',
   },
-
   linksContainer: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 34,
   },
-
   link: {
     fontSize: 8,
     color: '#777777',
     textDecorationLine: 'underline',
   },
-
   loginButton: {
     width: '100%',
     height: 43,
@@ -216,23 +205,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   loginText: {
     color: '#FFFFFF',
     fontSize: 12,
     fontWeight: 'bold',
   },
-
   waveTop: {
     position: 'absolute',
     top: 0,
     left: 0,
   },
-
   waveBottom: {
     position: 'absolute',
     bottom: 0,
     left: 0,
   },
-
 });
