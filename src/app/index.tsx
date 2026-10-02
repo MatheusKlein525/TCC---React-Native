@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { useState } from 'react';
 import {
   Dimensions,
@@ -88,11 +89,13 @@ export default function HomeScreen() {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Text style={styles.link}>
-              Esqueci minha senha
-            </Text>
-          </TouchableOpacity>
+          <Link href="/forgot-password" asChild>
+            <TouchableOpacity>
+              <Text style={styles.link}>
+                Esqueci minha senha
+              </Text>
+            </TouchableOpacity>
+          </Link>
 
         </View>
 
@@ -143,11 +146,11 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.30,
   },
 
- logo: {
-  width: 320,
-  height: 230,
-  marginBottom: 35,
-},
+  logo: {
+    width: 320,
+    height: 230,
+    marginBottom: 35,
+  },
 
   input: {
     width: '100%',
