@@ -3,6 +3,9 @@
     "name": "FairPay",
     "slug": "FairPay",
     "version": "1.0.0",
+    "experiments": {
+      "baseUrl": "/TCC---React-Native"
+    },
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "fairpay",
